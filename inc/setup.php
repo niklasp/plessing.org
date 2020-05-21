@@ -34,6 +34,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'align-wide' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -131,7 +132,7 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	 */
 	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
+			$post_excerpt = $post_excerpt . ' [...]<p><a class="understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
 			'understrap' ) . '</a></p>';
 		}
 		return $post_excerpt;

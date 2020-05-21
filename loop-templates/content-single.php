@@ -12,18 +12,16 @@ defined( 'ABSPATH' ) || exit;
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
+		<div class="entry-text">
+			<?php echo get_the_term_list( $post->ID, 'stadt', '<div class="entry-stadt">', '', '', '</div>' ) ?>
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</div>
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		<div class="entry-meta">
-
-			<?php understrap_posted_on(); ?>
-
-		</div><!-- .entry-meta -->
+		<div class="image-wrap">
+			<?php echo get_the_post_thumbnail( $post->ID, 'large', array( 'class' => 'rellax', 'data-rellax-speed' => '-7' ) ); ?>
+		</div>
 
 	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
 

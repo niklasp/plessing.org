@@ -9,9 +9,15 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('home-post'); ?> id="post-<?php the_ID(); ?>">
+
+	<?php
+		echo sprintf( '<a href="%s">%s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( $post->ID ) );
+	?>
 
 	<header class="entry-header">
+
+		<?php echo get_the_term_list( $post->ID, 'stadt', '<div class="entry-stadt">', ', ', '</div>' ) ?>
 
 		<?php
 		the_title(
@@ -20,17 +26,7 @@ defined( 'ABSPATH' ) || exit;
 		);
 		?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-
-			<div class="entry-meta">
-				<?php understrap_posted_on(); ?>
-			</div><!-- .entry-meta -->
-
-		<?php endif; ?>
-
 	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
 
@@ -49,7 +45,13 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php understrap_entry_footer(); ?>
+		<?php if (has_category() ): ?>
+			<ul class="post-categories">
+				<?php foreach (get_the_category() as $category ) { ?>
+					<li class="post-category"><a href="<?php echo get_category_link( $category->cat_ID ) ?>"><?php echo $category->name ?></a></li>
+				<?php } ?>
+			</ul>
+		<?php endif ?>
 
 	</footer><!-- .entry-footer -->
 

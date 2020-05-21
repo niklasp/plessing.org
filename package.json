@@ -4,6 +4,7 @@
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
+    "start": "gulp watch",
     "postinstall": "gulp copy-assets"
   },
   "engines": {
@@ -47,6 +48,7 @@
     "gulp-touch-fd": "^2.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
+    "rellax": "^1.12.1",
     "undescores-for-npm": "^1.0.0"
   },
   "devDependencies": {

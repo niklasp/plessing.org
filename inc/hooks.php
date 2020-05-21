@@ -13,7 +13,7 @@ if ( ! function_exists( 'understrap_site_info' ) ) {
 	 * Add site info hook to WP hook library.
 	 */
 	function understrap_site_info() {
-		do_action( 'understrap_site_info' );
+		// do_action( 'understrap_site_info' );
 	}
 }
 
@@ -47,5 +47,45 @@ if ( ! function_exists( 'understrap_add_site_info' ) ) {
 		);
 
 		echo apply_filters( 'understrap_site_info_content', $site_info ); // WPCS: XSS ok.
+	}
+}
+
+add_action( 'init', 'create_topics_nonhierarchical_taxonomy', 0 );
+
+if ( ! function_exists( 'create_topics_nonhierarchical_taxonomy' ) ) {
+	function create_topics_nonhierarchical_taxonomy() {
+
+	// Labels part for the GUI
+
+	  $labels = array(
+	    'name' => _x( 'Stadt', 'taxonomy general name' ),
+	    'singular_name' => _x( 'Stadt', 'taxonomy singular name' ),
+	    'search_items' =>  __( 'Städte durchsuchen' ),
+	    'popular_items' => __( 'Popular Städte' ),
+	    'all_items' => __( 'All Städte' ),
+	    'parent_item' => null,
+	    'parent_item_colon' => null,
+	    'edit_item' => __( 'Stadt bearbeite' ),
+	    'update_item' => __( 'Stadt aktualisieren' ),
+	    'add_new_item' => __( 'Neue Stadt' ),
+	    'new_item_name' => __( 'Neue Stadt' ),
+	    'separate_items_with_commas' => __( 'Separate topics with commas' ),
+	    'add_or_remove_items' => __( 'Add or remove topics' ),
+	    'choose_from_most_used' => __( 'Choose from the most used städte' ),
+	    'menu_name' => __( 'Städte' ),
+	  );
+
+	// Now register the non-hierarchical taxonomy like tag
+
+	  register_taxonomy('stadt','post',array(
+	    'hierarchical' => true,
+	    'labels' => $labels,
+	    'show_ui' => true,
+			'show_in_rest' => true,
+	    'show_admin_column' => true,
+	    'update_count_callback' => '_update_post_term_count',
+	    'query_var' => true,
+	    'rewrite' => array( 'slug' => 'stadt' ),
+	  ));
 	}
 }

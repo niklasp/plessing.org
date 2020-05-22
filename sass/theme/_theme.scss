@@ -153,6 +153,7 @@ li.city-filter {
 }
 
 .front-matter {
+	max-width: 800px;
 
 	h1,
 	h2 {
@@ -168,8 +169,14 @@ li.city-filter {
 	}
 
 	h2 {
-		margin-left: 10px;
+		// margin-left: 10px;
 		font-size: 60px;
+		display: block;
+	}
+
+	p {
+		font-size: 22px;
+		color: #fff;
 	}
 }
 
@@ -181,16 +188,30 @@ li.city-filter {
 	margin-top: 20px;
 
 	a {
+		font-weight: 500;
 		font-size: 25px;
 		color: #fff;
 		margin: 0 15px 0 4px;
 		transition: border 0.2s;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 
 		&:hover {
 			color: #fff;
 			border-bottom: 2px solid #fff;
 			text-decoration: none;
+		}
+	}
+}
+
+body.home {
+	#wrapper-footer-full {
+		position: absolute;
+		color: #fff;
+		bottom: 0;
+		right: 2rem;
+
+		a {
+			color: #fff;
 		}
 	}
 }
@@ -354,7 +375,7 @@ body.blog {
 			}
 
 			img {
-				height: 300px;
+				height: 250px;
 				object-fit: cover;
 			}
 

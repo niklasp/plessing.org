@@ -24,11 +24,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<main class="site-main" id="main">
 
 			<div class="front-matter reveal">
-				<h1>Plessing |</h1>
-				<h2>Planungsbüro</h2>
+				<h1>Planungs- und Sachverständigenbüro</h1>
+				<h2>Plessing</h2>
+				<p>Ihr Fachparter für Freiraumplanung, Landschaftsplanung, Landschaftsarchitektur, Baumkontrolle und Naturschutz
 			</div>
 			<div class="front-links">
 				<a class="reveal" href="projekte">Projekte</a>
+				<a class="reveal" href="leistungen">Leistungen</a>
 				<a class="reveal" href="profil">Profil</a>
 				<a class="reveal" href="kontakt">Kontakt</a>
 			</div>
